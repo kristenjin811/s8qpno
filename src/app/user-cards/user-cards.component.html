@@ -1,0 +1,18 @@
+
+<div class="card-container">
+  <div *ngFor="let user of users" class="card">
+
+    <div class="user-image">
+      <img [src]="user.picture.thumbnail" alt="user-thumbnail"/>
+    </div>
+
+    <div class="card-body">
+      <h5 class="card-title"> Name: {{user.name.first }} {{user.name.last}}</h5>
+      <p class="card-text">Email: {{user.email}}</p>
+      <p class="card-text">Phone: {{user.phone}}</p>
+      <button (click)="toggleDOB(user)">Toggle DOB</button>
+      <p *ngIf="user.showDOB" class="card-text">Date of Birth: {{ user.dob.date | date }}</p>
+    </div>
+    <hr>
+  </div>
+</div>
